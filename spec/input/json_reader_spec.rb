@@ -73,7 +73,7 @@ RSpec.describe JsonReader do
 
     context 'invalid product' do
       it 'throws an error' do
-        expect { JsonReader.new('[{"uuid": 23881}]').product_list }.to raise_error
+        expect { JsonReader.new('[{"uuid": 23881}]').product_list }.to raise_error(RuntimeError)
       end
     end
   end
