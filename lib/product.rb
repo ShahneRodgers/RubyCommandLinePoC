@@ -3,6 +3,8 @@
 class Product
   attr_reader :uuid, :name, :price
 
+  private_class_method :new
+
   def initialize(uuid, name, price)
     @uuid = uuid
     @name = name
@@ -16,6 +18,6 @@ class Product
     price = price.to_f
     raise 'Invalid price' if price <= 0
 
-    Product.new(uuid, name, price)
+    new(uuid, name, price)
   end
 end
