@@ -71,7 +71,8 @@ RSpec.describe Cart do
 
     it 'applies the given discount' do
       allow(Discount).to receive(:find_discount) { class_double('NoDiscount', value: 31) }
-      # Currently allows the discount to be greater than the value. Perhaps we don't trust the discounts and want to disallow that?
+      # Currently allows the discount to be greater than the value.
+      # Perhaps we don't trust the discounts and want to disallow that?
       expect(cart.calculate_total.total).to be(-31)
     end
 
