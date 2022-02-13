@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'output/text_output'
+
 class Product
+  @@display_method = TextOutput.new
   attr_reader :uuid, :name, :price
 
   private_class_method :new
@@ -19,5 +22,9 @@ class Product
     raise 'Invalid price' if price <= 0
 
     new(uuid, name, price)
+  end
+
+  def to_s
+    @@display_method.display_product(self)
   end
 end
